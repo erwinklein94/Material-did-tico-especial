@@ -29,7 +29,6 @@
   @media (prefers-color-scheme: dark) { :root { color-scheme: light only; } }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html, body { background: #fdf6e8 !important; color: #2d2d2d !important; }
 
   body {
@@ -59,7 +58,8 @@
     display: flex; align-items: center; gap: 12px;
     font-family: var(--fonte-titulo);
     font-size: 2rem; font-weight: 700;
-    color: var(--cor-texto);
+    color: var(--cor-texto); cursor: pointer;
+    background: none; border: none;
   }
 
   .logo-icon {
@@ -82,7 +82,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
     background: #ffffff; color: var(--cor-texto);
     display: inline-flex; align-items: center; gap: 8px;
-    white-space: nowrap;
+    white-space: nowrap; text-decoration: none;
   }
 
   .btn:hover, .btn:active { transform: translateY(-3px) rotate(-1deg); box-shadow: 4px 4px 0 var(--cor-contorno); }
@@ -90,6 +90,7 @@
   .btn-secondary { background: var(--cor-azul); color: #ffffff; }
   .btn-success { background: var(--cor-verde); color: #ffffff; }
   .btn-warning { background: var(--cor-amarelo); color: var(--cor-texto); }
+  .btn-wpp { background: #25D366; color: #fff; }
 
   .cart-btn { background: var(--cor-laranja); color: #ffffff; position: relative; }
 
@@ -146,7 +147,7 @@
     padding: 20px; position: relative;
     transition: transform 0.3s;
     box-shadow: 5px 5px 0 var(--cor-contorno);
-    color: var(--cor-texto);
+    color: var(--cor-texto); cursor: pointer;
   }
 
   .produto:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 8px 8px 0 var(--cor-contorno); }
@@ -185,6 +186,166 @@
 
   .btn-add:hover { transform: scale(1.1); }
 
+  /* PÁGINA DE DETALHES */
+  .detalhe-page {
+    display: none;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  .detalhe-page.active { display: block; }
+  .vitrine-page.hidden { display: none; }
+
+  .btn-voltar {
+    background: #fff; margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .detalhe-hero {
+    background: #fff;
+    border: 3px solid var(--cor-contorno);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 6px 6px 0 var(--cor-contorno);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 700px) {
+    .detalhe-hero { grid-template-columns: 1fr; }
+  }
+
+  .detalhe-img {
+    border-radius: 18px;
+    border: 3px dashed var(--cor-contorno);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10rem;
+    min-height: 280px;
+    position: relative;
+  }
+
+  .detalhe-tag {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--cor-vermelho); color: #fff;
+    padding: 6px 16px;
+    border: 2px solid var(--cor-contorno);
+    border-radius: 20px;
+    font-weight: 700;
+    transform: rotate(8deg);
+  }
+
+  .detalhe-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+
+  .detalhe-info .cat-badge {
+    display: inline-block;
+    background: var(--cor-amarelo);
+    border: 2px solid var(--cor-contorno);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .detalhe-info .subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .detalhe-preco {
+    font-family: var(--fonte-titulo);
+    font-size: 3rem;
+    color: var(--cor-verde);
+    margin-bottom: 16px;
+  }
+
+  .detalhe-acoes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .detalhe-sections {
+    display: grid;
+    gap: 20px;
+  }
+
+  .detalhe-section {
+    background: #fff;
+    border: 3px solid var(--cor-contorno);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 4px 4px 0 var(--cor-contorno);
+  }
+
+  .detalhe-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .detalhe-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    white-space: pre-wrap;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .info-box {
+    background: var(--cor-fundo);
+    border: 2px solid var(--cor-contorno);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .info-box .icon { font-size: 1.8rem; margin-bottom: 4px; }
+  .info-box .label { font-size: 0.8rem; color: #888; }
+  .info-box .valor { font-family: var(--fonte-titulo); font-size: 1.3rem; color: var(--cor-texto); }
+
+  .lista-features {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .lista-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--cor-fundo);
+    border: 2px solid var(--cor-contorno);
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  .lista-features li::before {
+    content: "✓";
+    color: var(--cor-verde);
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  /* MODALS */
   .modal-overlay {
     display: none; position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -221,6 +382,7 @@
 
   .form-group { margin-bottom: 16px; }
   .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--cor-texto); }
+  .form-group small { color: #888; font-size: 0.8rem; font-weight: 400; }
   .form-group input, .form-group select, .form-group textarea {
     width: 100%; padding: 10px 14px;
     border: 3px solid var(--cor-contorno);
@@ -229,6 +391,17 @@
     background: #ffffff; color: var(--cor-texto);
   }
   .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-section-title {
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    margin: 20px 0 10px;
+    padding-top: 14px;
+    border-top: 2px dashed var(--cor-contorno);
+    color: var(--cor-vermelho);
+  }
+
+  .form-section-title:first-of-type { border-top: none; padding-top: 0; }
 
   .carrinho-item {
     display: flex; gap: 12px; align-items: center;
@@ -376,6 +549,10 @@
     .btn { padding: 8px 14px; font-size: 0.9rem; }
     .toast { right: 10px; left: 10px; bottom: 20px; }
     .admin-tab { font-size: 0.8rem; padding: 6px 12px; }
+    .detalhe-hero { padding: 20px; }
+    .detalhe-info h1 { font-size: 1.8rem; }
+    .detalhe-preco { font-size: 2.2rem; }
+    .detalhe-img { font-size: 6rem; min-height: 200px; }
   }
 </style>
 
@@ -383,38 +560,47 @@
 <body>
 
 <header>
-  <div class="logo">
+  <button class="logo" onclick="voltarVitrine()">
     <div class="logo-icon">☀️</div>
     <span>Mundo Colorido</span>
-  </div>
+  </button>
   <div class="header-actions">
     <button class="btn cart-btn" onclick="abrirCarrinho()">
-      🛒 Carrinho <span class="cart-count" id="cartCount">0</span>
+      🛒 <span id="cartCount">0</span>
     </button>
-    <a class="btn" style="background: #25D366; color: #fff; text-decoration: none;" href="https://wa.me/5513991613816?text=Ol%C3%A1!%20Tenho%20interesse%20nos%20materiais%20did%C3%A1ticos%20do%20Mundo%20Colorido%20%F0%9F%8C%88" target="_blank" rel="noopener">
+    <a class="btn btn-wpp" href="https://wa.me/5513991613816?text=Ol%C3%A1!%20Tenho%20interesse%20nos%20materiais%20did%C3%A1ticos%20do%20Mundo%20Colorido%20%F0%9F%8C%88" target="_blank" rel="noopener">
       💬 WhatsApp
     </a>
     <button class="btn btn-secondary" onclick="abrirLoginAdmin()">🔐 Admin</button>
   </div>
 </header>
 
-<section class="hero">
-  <h1><span>M</span><span>u</span><span>n</span><span>d</span><span>o</span> Colorido</h1>
-  <p>Materiais didáticos criados com carinho para todas as crianças aprenderem brincando! 🌈 Inclusivos, acessíveis e prontos para imprimir em casa.</p>
-  <div class="hero-decoration">
-    <span>📚</span><span>✏️</span><span>🎨</span><span>⭐</span><span>🌈</span>
-  </div>
-</section>
+<!-- VITRINE -->
 
-<div class="categorias">
-  <button class="cat-btn active" data-cat="todos">✨ Todos</button>
-  <button class="cat-btn" data-cat="alfabetizacao">🔤 Alfabetização</button>
-  <button class="cat-btn" data-cat="matematica">🔢 Matemática</button>
-  <button class="cat-btn" data-cat="inclusivo">💙 Inclusivo</button>
-  <button class="cat-btn" data-cat="atividades">🎨 Atividades</button>
+<div id="vitrinePage" class="vitrine-page">
+  <section class="hero">
+    <h1><span>M</span><span>u</span><span>n</span><span>d</span><span>o</span> Colorido</h1>
+    <p>Materiais didáticos criados com carinho para todas as crianças aprenderem brincando! 🌈 Inclusivos, acessíveis e prontos para imprimir em casa.</p>
+    <div class="hero-decoration"><span>📚</span><span>✏️</span><span>🎨</span><span>⭐</span><span>🌈</span></div>
+  </section>
+
+  <div class="categorias">
+    <button class="cat-btn active" data-cat="todos">✨ Todos</button>
+    <button class="cat-btn" data-cat="alfabetizacao">🔤 Alfabetização</button>
+    <button class="cat-btn" data-cat="matematica">🔢 Matemática</button>
+    <button class="cat-btn" data-cat="inclusivo">💙 Inclusivo</button>
+    <button class="cat-btn" data-cat="atividades">🎨 Atividades</button>
+  </div>
+
+  <main class="vitrine" id="vitrine"></main>
 </div>
 
-<main class="vitrine" id="vitrine"></main>
+<!-- DETALHES -->
+
+<div id="detalhePage" class="detalhe-page">
+  <button class="btn btn-voltar" onclick="voltarVitrine()">← Voltar</button>
+  <div id="detalheConteudo"></div>
+</div>
 
 <div class="modal-overlay" id="modalCarrinho">
   <div class="modal">
@@ -429,17 +615,9 @@
   <div class="modal" style="max-width: 450px;">
     <button class="close-modal" onclick="fecharModal('modalCheckout')">✕</button>
     <h2>📧 Finalizar Compra</h2>
-    <p style="text-align: center; margin-bottom: 20px; color: #555;">
-      Informe seu e-mail para receber os materiais em PDF:
-    </p>
-    <div class="form-group">
-      <label>Seu nome</label>
-      <input type="text" id="clienteNome" placeholder="Ex: Maria Silva">
-    </div>
-    <div class="form-group">
-      <label>E-mail</label>
-      <input type="email" id="clienteEmail" placeholder="seu@email.com" onkeypress="if(event.key==='Enter') confirmarCompra()">
-    </div>
+    <p style="text-align: center; margin-bottom: 20px; color: #555;">Informe seu e-mail para receber os materiais em PDF:</p>
+    <div class="form-group"><label>Seu nome</label><input type="text" id="clienteNome" placeholder="Ex: Maria Silva"></div>
+    <div class="form-group"><label>E-mail</label><input type="email" id="clienteEmail" placeholder="seu@email.com" onkeypress="if(event.key==='Enter') confirmarCompra()"></div>
     <div id="resumoCheckout" style="background: #fff; border: 2px dashed var(--cor-contorno); border-radius: 12px; padding: 12px; margin-bottom: 16px;"></div>
     <button class="btn btn-success" style="width: 100%;" onclick="confirmarCompra()">✨ Confirmar Compra</button>
     <p id="erroCheckout" style="color: var(--cor-vermelho); text-align: center; margin-top: 10px; display: none;"></p>
@@ -450,10 +628,7 @@
   <div class="modal" style="max-width: 400px;">
     <button class="close-modal" onclick="fecharModal('modalLogin')">✕</button>
     <h2>🔐 Acesso Admin</h2>
-    <div class="form-group">
-      <label>Senha</label>
-      <input type="password" id="senhaAdmin" placeholder="Digite a senha" onkeypress="if(event.key==='Enter') entrarAdmin()">
-    </div>
+    <div class="form-group"><label>Senha</label><input type="password" id="senhaAdmin" placeholder="Digite a senha" onkeypress="if(event.key==='Enter') entrarAdmin()"></div>
     <button class="btn btn-primary" style="width: 100%;" onclick="entrarAdmin()">Entrar</button>
     <p id="erroSenha" style="color: var(--cor-vermelho); text-align: center; margin-top: 10px; display: none;">Senha incorreta! 😢</p>
   </div>
@@ -468,12 +643,11 @@
       <button class="admin-tab" onclick="trocarTab('tab-adicionar', this)">➕ Adicionar</button>
       <button class="admin-tab" onclick="trocarTab('tab-pedidos', this)">📦 Pedidos</button>
     </div>
-    <div id="tab-listar">
-      <div class="admin-produto-list" id="adminLista"></div>
-    </div>
+    <div id="tab-listar"><div class="admin-produto-list" id="adminLista"></div></div>
     <div id="tab-adicionar" style="display: none;">
+      <div class="form-section-title">📦 Informações Básicas</div>
       <div class="form-group"><label>Nome do Material</label><input type="text" id="novoNome" placeholder="Ex: Alfabeto Colorido"></div>
-      <div class="form-group"><label>Descrição</label><textarea id="novaDesc" placeholder="Breve descrição do material..."></textarea></div>
+      <div class="form-group"><label>Descrição curta <small>(aparece no card)</small></label><textarea id="novaDesc" placeholder="Breve descrição do material..."></textarea></div>
       <div class="form-group"><label>Preço (R$)</label><input type="number" id="novoPreco" step="0.01" placeholder="19.90"></div>
       <div class="form-group"><label>Categoria</label>
         <select id="novaCat">
@@ -483,36 +657,70 @@
           <option value="atividades">Atividades</option>
         </select>
       </div>
-      <div class="form-group"><label>Emoji (ícone visual)</label><input type="text" id="novoIcon" placeholder="📚" maxlength="4"></div>
-      <div class="form-group"><label>Tag (opcional)</label><input type="text" id="novaTag" placeholder="NOVO, POPULAR..."></div>
-      <button class="btn btn-success" style="width: 100%;" onclick="adicionarProduto()">✨ Adicionar Material</button>
-    </div>
-    <div id="tab-pedidos" style="display: none;">
-      <div id="pedidosResumo" style="margin-bottom: 16px;"></div>
-      <div id="pedidosLista"></div>
-    </div>
+      <div class="form-group"><label>Emoji</label><input type="text" id="novoIcon" placeholder="📚" maxlength="4"></div>
+      <div class="form-group"><label>Tag</label><input type="text" id="novaTag" placeholder="NOVO, POPULAR..."></div>
+
+```
+  <div class="form-section-title">📖 Página de Detalhes</div>
+  <div class="form-group"><label>Subtítulo <small>(frase de impacto)</small></label><input type="text" id="novoSubtitulo" placeholder="Transforme o aprendizado em brincadeira!"></div>
+  <div class="form-group"><label>Descrição completa <small>(apresentação do material)</small></label><textarea id="novaDescLonga" placeholder="Conte sobre o material, para quem é, como foi desenvolvido..." style="min-height: 120px;"></textarea></div>
+  <div class="form-group"><label>O que inclui? <small>(um item por linha)</small></label><textarea id="novoInclui" placeholder="30 páginas coloridas&#10;Guia para pais&#10;Atividades extras"></textarea></div>
+  <div class="form-group"><label>Para quem é indicado? <small>(um item por linha)</small></label><textarea id="novoPublico" placeholder="Crianças de 4 a 7 anos&#10;Educadores&#10;Famílias em alfabetização"></textarea></div>
+
+  <div class="form-section-title">ℹ️ Especificações</div>
+  <div class="form-group"><label>Idade recomendada</label><input type="text" id="novaIdade" placeholder="Ex: 4-7 anos"></div>
+  <div class="form-group"><label>Número de páginas</label><input type="text" id="novaPaginas" placeholder="Ex: 30"></div>
+  <div class="form-group"><label>Formato</label><input type="text" id="novoFormato" placeholder="Ex: PDF A4"></div>
+  <div class="form-group"><label>Tempo estimado de uso</label><input type="text" id="novoTempo" placeholder="Ex: 2-4 semanas"></div>
+
+  <button class="btn btn-success" style="width: 100%;" onclick="adicionarProduto()">✨ Adicionar Material</button>
+</div>
+<div id="tab-pedidos" style="display: none;">
+  <div id="pedidosResumo" style="margin-bottom: 16px;"></div>
+  <div id="pedidosLista"></div>
+</div>
+```
+
   </div>
 </div>
 
 <div class="modal-overlay" id="modalEditar">
-  <div class="modal" style="max-width: 500px;">
+  <div class="modal" style="max-width: 600px;">
     <button class="close-modal" onclick="fecharModal('modalEditar')">✕</button>
     <h2>✏️ Editar Material</h2>
     <input type="hidden" id="editId">
-    <div class="form-group"><label>Nome</label><input type="text" id="editNome"></div>
-    <div class="form-group"><label>Descrição</label><textarea id="editDesc"></textarea></div>
-    <div class="form-group"><label>Preço (R$)</label><input type="number" id="editPreco" step="0.01"></div>
-    <div class="form-group"><label>Categoria</label>
-      <select id="editCat">
-        <option value="alfabetizacao">Alfabetização</option>
-        <option value="matematica">Matemática</option>
-        <option value="inclusivo">Inclusivo</option>
-        <option value="atividades">Atividades</option>
-      </select>
-    </div>
-    <div class="form-group"><label>Emoji</label><input type="text" id="editIcon" maxlength="4"></div>
-    <div class="form-group"><label>Tag</label><input type="text" id="editTag"></div>
-    <button class="btn btn-primary" style="width: 100%;" onclick="salvarEdicao()">💾 Salvar Alterações</button>
+
+```
+<div class="form-section-title">📦 Informações Básicas</div>
+<div class="form-group"><label>Nome</label><input type="text" id="editNome"></div>
+<div class="form-group"><label>Descrição curta</label><textarea id="editDesc"></textarea></div>
+<div class="form-group"><label>Preço (R$)</label><input type="number" id="editPreco" step="0.01"></div>
+<div class="form-group"><label>Categoria</label>
+  <select id="editCat">
+    <option value="alfabetizacao">Alfabetização</option>
+    <option value="matematica">Matemática</option>
+    <option value="inclusivo">Inclusivo</option>
+    <option value="atividades">Atividades</option>
+  </select>
+</div>
+<div class="form-group"><label>Emoji</label><input type="text" id="editIcon" maxlength="4"></div>
+<div class="form-group"><label>Tag</label><input type="text" id="editTag"></div>
+
+<div class="form-section-title">📖 Página de Detalhes</div>
+<div class="form-group"><label>Subtítulo</label><input type="text" id="editSubtitulo"></div>
+<div class="form-group"><label>Descrição completa</label><textarea id="editDescLonga" style="min-height: 120px;"></textarea></div>
+<div class="form-group"><label>O que inclui? <small>(um item por linha)</small></label><textarea id="editInclui"></textarea></div>
+<div class="form-group"><label>Para quem é indicado? <small>(um item por linha)</small></label><textarea id="editPublico"></textarea></div>
+
+<div class="form-section-title">ℹ️ Especificações</div>
+<div class="form-group"><label>Idade recomendada</label><input type="text" id="editIdade"></div>
+<div class="form-group"><label>Número de páginas</label><input type="text" id="editPaginas"></div>
+<div class="form-group"><label>Formato</label><input type="text" id="editFormato"></div>
+<div class="form-group"><label>Tempo estimado</label><input type="text" id="editTempo"></div>
+
+<button class="btn btn-primary" style="width: 100%;" onclick="salvarEdicao()">💾 Salvar Alterações</button>
+```
+
   </div>
 </div>
 
@@ -525,18 +733,66 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  const STORAGE_PRODUTOS = 'mundoColoridoProdutos_v1';
+  const STORAGE_PRODUTOS = 'mundoColoridoProdutos_v2';
   const STORAGE_PEDIDOS = 'mundoColoridoPedidos_v1';
 
   const produtosPadrao = [
-    { id: 1, nome: "Alfabeto Divertido", desc: "Cartões coloridos de A a Z com ilustrações", preco: 19.90, cat: "alfabetizacao", icon: "🔤", tag: "POPULAR" },
-    { id: 2, nome: "Números Mágicos", desc: "Atividades de contagem de 1 a 20", preco: 15.90, cat: "matematica", icon: "🔢", tag: "" },
-    { id: 3, nome: "Comunicação PECS", desc: "Cartões de comunicação para autismo", preco: 34.90, cat: "inclusivo", icon: "💙", tag: "NOVO" },
-    { id: 4, nome: "Pintar e Aprender", desc: "50 desenhos educativos para colorir", preco: 12.90, cat: "atividades", icon: "🎨", tag: "" },
-    { id: 5, nome: "Libras Infantil", desc: "Introdução à Língua Brasileira de Sinais", preco: 29.90, cat: "inclusivo", icon: "🤟", tag: "" },
-    { id: 6, nome: "Formas e Cores", desc: "Atividades sensoriais e visuais", preco: 17.90, cat: "atividades", icon: "🔶", tag: "" },
-    { id: 7, nome: "Sílabas Animadas", desc: "Formação de palavras passo a passo", preco: 22.90, cat: "alfabetizacao", icon: "📖", tag: "" },
-    { id: 8, nome: "Adição e Subtração", desc: "Exercícios visuais com objetos", preco: 18.90, cat: "matematica", icon: "➕", tag: "POPULAR" }
+    { id: 1, nome: "Alfabeto Divertido", desc: "Cartões coloridos de A a Z com ilustrações", preco: 19.90, cat: "alfabetizacao", icon: "🔤", tag: "POPULAR",
+      subtitulo: "Transforme as primeiras letras em uma aventura colorida!",
+      descLonga: "Um material completo para introduzir o alfabeto de forma lúdica e visual. Cada letra vem acompanhada de ilustrações memoráveis e atividades práticas que ajudam a criança a associar o som, a forma e o significado de cada letra.\n\nDesenvolvido por pedagogas especialistas em alfabetização, este material já foi usado por centenas de famílias e educadores.",
+      inclui: ["26 cartões coloridos (A-Z)", "Atividades de traçado", "Jogo da memória das letras", "Guia para pais e educadores", "Certificado de conclusão imprimível"],
+      publico: ["Crianças de 4 a 7 anos em fase de alfabetização", "Educadores da educação infantil", "Pais que querem apoiar o aprendizado em casa", "Terapeutas ocupacionais"],
+      idade: "4-7 anos", paginas: "35", formato: "PDF A4", tempo: "3-5 semanas"
+    },
+    { id: 2, nome: "Números Mágicos", desc: "Atividades de contagem de 1 a 20", preco: 15.90, cat: "matematica", icon: "🔢", tag: "",
+      subtitulo: "Aprender a contar nunca foi tão divertido!",
+      descLonga: "Uma jornada pelos números de 1 a 20 com atividades progressivas que desenvolvem o raciocínio lógico-matemático. Cada página traz desafios visuais coloridos que mantêm a criança engajada.",
+      inclui: ["20 fichas de contagem", "Atividades de correspondência quantidade-número", "Jogo de associação", "Adesivos imprimíveis de recompensa"],
+      publico: ["Crianças em início de alfabetização matemática", "Educação infantil", "Reforço escolar"],
+      idade: "4-6 anos", paginas: "28", formato: "PDF A4", tempo: "2-3 semanas"
+    },
+    { id: 3, nome: "Comunicação PECS", desc: "Cartões de comunicação para autismo", preco: 34.90, cat: "inclusivo", icon: "💙", tag: "NOVO",
+      subtitulo: "Dando voz a cada criança, do seu jeito.",
+      descLonga: "Sistema de Comunicação por Troca de Figuras (PECS) adaptado para uso em casa e na escola. Desenvolvido em parceria com fonoaudiólogos e psicólogos especializados em TEA, este material facilita a comunicação de crianças com autismo não-verbais ou minimamente verbais.\n\nTodas as figuras seguem padrões internacionais de comunicação aumentativa e alternativa (CAA).",
+      inclui: ["120 cartões de comunicação categorizados", "Pasta de velcro imprimível", "Tiras de frases", "Manual completo para cuidadores", "Guia de implementação passo a passo"],
+      publico: ["Crianças no espectro autista", "Famílias de crianças não-verbais", "Fonoaudiólogos e terapeutas", "Escolas inclusivas"],
+      idade: "A partir de 2 anos", paginas: "140", formato: "PDF A4", tempo: "Uso contínuo"
+    },
+    { id: 4, nome: "Pintar e Aprender", desc: "50 desenhos educativos para colorir", preco: 12.90, cat: "atividades", icon: "🎨", tag: "",
+      subtitulo: "50 aventuras para colorir e aprender!",
+      descLonga: "Uma coleção de 50 desenhos educativos que trabalham coordenação motora fina, concentração e reconhecimento de formas, animais, objetos e situações do dia a dia.",
+      inclui: ["50 páginas para colorir", "Guia de atividades complementares", "Sugestões de conversa com a criança"],
+      publico: ["Crianças de 3 a 8 anos", "Atividade em família", "Momentos de relaxamento e foco"],
+      idade: "3-8 anos", paginas: "50", formato: "PDF A4", tempo: "Livre"
+    },
+    { id: 5, nome: "Libras Infantil", desc: "Introdução à Língua Brasileira de Sinais", preco: 29.90, cat: "inclusivo", icon: "🤟", tag: "",
+      subtitulo: "Mãos que falam, corações que se conectam.",
+      descLonga: "Uma introdução lúdica à Língua Brasileira de Sinais para crianças ouvintes e surdas. Ilustrações claras dos sinais, acompanhadas de atividades práticas para memorização.",
+      inclui: ["Alfabeto manual completo", "50 sinais do cotidiano ilustrados", "Jogos de associação", "Sugestões de atividades em grupo"],
+      publico: ["Crianças surdas e ouvintes", "Famílias bilíngues", "Escolas inclusivas", "Educadores de crianças surdas"],
+      idade: "5-10 anos", paginas: "60", formato: "PDF A4", tempo: "4-8 semanas"
+    },
+    { id: 6, nome: "Formas e Cores", desc: "Atividades sensoriais e visuais", preco: 17.90, cat: "atividades", icon: "🔶", tag: "",
+      subtitulo: "Descobrindo o mundo através das formas e cores!",
+      descLonga: "Material sensorial que explora o reconhecimento de formas geométricas básicas e cores primárias, secundárias e terciárias através de atividades práticas e visuais.",
+      inclui: ["Cartões de formas", "Paleta de cores para estudar", "Atividades de classificação", "Jogo de memória"],
+      publico: ["Crianças de 3 a 6 anos", "Educação sensorial", "Desenvolvimento cognitivo inicial"],
+      idade: "3-6 anos", paginas: "32", formato: "PDF A4", tempo: "2-3 semanas"
+    },
+    { id: 7, nome: "Sílabas Animadas", desc: "Formação de palavras passo a passo", preco: 22.90, cat: "alfabetizacao", icon: "📖", tag: "",
+      subtitulo: "Das sílabas às primeiras palavras!",
+      descLonga: "Material estruturado para o próximo passo da alfabetização: a formação de sílabas e palavras. Progressão didática cuidadosamente planejada, do simples ao complexo.",
+      inclui: ["Cartões silábicos (famílias silábicas)", "Atividades de formação de palavras", "Banco de palavras ilustradas", "Jogos de leitura"],
+      publico: ["Crianças na fase silábica da alfabetização", "Reforço escolar", "Educação domiciliar"],
+      idade: "5-8 anos", paginas: "45", formato: "PDF A4", tempo: "4-6 semanas"
+    },
+    { id: 8, nome: "Adição e Subtração", desc: "Exercícios visuais com objetos", preco: 18.90, cat: "matematica", icon: "➕", tag: "POPULAR",
+      subtitulo: "Matemática concreta, aprendizado duradouro!",
+      descLonga: "Exercícios de adição e subtração baseados na manipulação visual de objetos, facilitando a compreensão das operações básicas antes da abstração numérica.",
+      inclui: ["Fichas de operações ilustradas", "Material manipulável imprimível", "Problemas contextualizados", "Avaliações progressivas"],
+      publico: ["Crianças de 5 a 8 anos", "Ensino fundamental inicial", "Crianças com dificuldades em matemática"],
+      idade: "5-8 anos", paginas: "40", formato: "PDF A4", tempo: "3-5 semanas"
+    }
   ];
 
   function carregar(key, padrao) {
@@ -551,6 +807,20 @@
   let categoriaAtiva = "todos";
   let proximoId = produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1;
 
+  // Garante campos novos em produtos antigos
+  produtos.forEach(p => {
+    if (!p.subtitulo) p.subtitulo = "";
+    if (!p.descLonga) p.descLonga = p.desc || "";
+    if (!p.inclui) p.inclui = [];
+    if (!p.publico) p.publico = [];
+    if (!p.idade) p.idade = "";
+    if (!p.paginas) p.paginas = "";
+    if (!p.formato) p.formato = "PDF A4";
+    if (!p.tempo) p.tempo = "";
+  });
+
+  function escapeHtml(t) { return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
   function renderVitrine() {
     const vitrine = document.getElementById("vitrine");
     const filtrados = categoriaAtiva === "todos" ? produtos : produtos.filter(p => p.cat === categoriaAtiva);
@@ -559,14 +829,14 @@
       return;
     }
     vitrine.innerHTML = filtrados.map(p => `
-      <div class="produto">
-        ${p.tag ? `<div class="produto-tag">${p.tag}</div>` : ''}
+      <div class="produto" onclick="abrirDetalhe(${p.id})">
+        ${p.tag ? `<div class="produto-tag">${escapeHtml(p.tag)}</div>` : ''}
         <div class="produto-img" style="background: ${corPorCategoria(p.cat)}">${p.icon}</div>
-        <h3>${p.nome}</h3>
-        <p class="produto-desc">${p.desc}</p>
+        <h3>${escapeHtml(p.nome)}</h3>
+        <p class="produto-desc">${escapeHtml(p.desc)}</p>
         <div class="produto-rodape">
           <span class="preco">R$ ${p.preco.toFixed(2).replace('.',',')}</span>
-          <button class="btn-add" onclick="adicionarAoCarrinho(${p.id})">+ Carrinho</button>
+          <button class="btn-add" onclick="event.stopPropagation(); adicionarAoCarrinho(${p.id})">+ Carrinho</button>
         </div>
       </div>
     `).join('');
@@ -574,6 +844,90 @@
 
   function corPorCategoria(cat) {
     return ({ alfabetizacao: "#fff4d4", matematica: "#d4e9ff", inclusivo: "#ffd9d4", atividades: "#d9f5c8" })[cat] || "#fdf6e8";
+  }
+
+  function nomeCat(cat) {
+    return ({ alfabetizacao: "🔤 Alfabetização", matematica: "🔢 Matemática", inclusivo: "💙 Inclusivo", atividades: "🎨 Atividades" })[cat] || cat;
+  }
+
+  function abrirDetalhe(id) {
+    const p = produtos.find(x => x.id === id);
+    if (!p) return;
+
+    const inclui = (p.inclui || []).filter(Boolean);
+    const publico = (p.publico || []).filter(Boolean);
+
+    document.getElementById("detalheConteudo").innerHTML = `
+      <div class="detalhe-hero">
+        <div class="detalhe-img" style="background: ${corPorCategoria(p.cat)}">
+          ${p.tag ? `<div class="detalhe-tag">${escapeHtml(p.tag)}</div>` : ''}
+          ${p.icon}
+        </div>
+        <div class="detalhe-info">
+          <span class="cat-badge">${nomeCat(p.cat)}</span>
+          <h1>${escapeHtml(p.nome)}</h1>
+          ${p.subtitulo ? `<p class="subtitle">${escapeHtml(p.subtitulo)}</p>` : ''}
+          <div class="detalhe-preco">R$ ${p.preco.toFixed(2).replace('.',',')}</div>
+          <div class="detalhe-acoes">
+            <button class="btn btn-success" onclick="adicionarAoCarrinho(${p.id})">🛒 Adicionar ao Carrinho</button>
+            <a class="btn btn-wpp" href="https://wa.me/5513991613816?text=${encodeURIComponent('Olá! Tenho interesse no material: ' + p.nome + ' 🌈')}" target="_blank" rel="noopener">💬 Tirar dúvidas</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="detalhe-sections">
+        ${p.descLonga ? `
+        <div class="detalhe-section">
+          <h2>📖 Sobre o material</h2>
+          <p>${escapeHtml(p.descLonga)}</p>
+        </div>` : ''}
+
+        ${(p.idade || p.paginas || p.formato || p.tempo) ? `
+        <div class="detalhe-section">
+          <h2>ℹ️ Especificações</h2>
+          <div class="info-grid">
+            ${p.idade ? `<div class="info-box"><div class="icon">👶</div><div class="label">Idade</div><div class="valor">${escapeHtml(p.idade)}</div></div>` : ''}
+            ${p.paginas ? `<div class="info-box"><div class="icon">📄</div><div class="label">Páginas</div><div class="valor">${escapeHtml(p.paginas)}</div></div>` : ''}
+            ${p.formato ? `<div class="info-box"><div class="icon">📁</div><div class="label">Formato</div><div class="valor">${escapeHtml(p.formato)}</div></div>` : ''}
+            ${p.tempo ? `<div class="info-box"><div class="icon">⏱️</div><div class="label">Duração</div><div class="valor">${escapeHtml(p.tempo)}</div></div>` : ''}
+          </div>
+        </div>` : ''}
+
+        ${inclui.length ? `
+        <div class="detalhe-section">
+          <h2>🎁 O que está incluído</h2>
+          <ul class="lista-features">
+            ${inclui.map(i => `<li>${escapeHtml(i)}</li>`).join('')}
+          </ul>
+        </div>` : ''}
+
+        ${publico.length ? `
+        <div class="detalhe-section">
+          <h2>👨‍👩‍👧 Para quem é</h2>
+          <ul class="lista-features">
+            ${publico.map(i => `<li>${escapeHtml(i)}</li>`).join('')}
+          </ul>
+        </div>` : ''}
+
+        <div class="detalhe-section" style="text-align: center; background: var(--cor-amarelo);">
+          <h2 style="justify-content: center;">📥 Como recebo?</h2>
+          <p style="text-align: center;">Após a compra, enviamos o PDF para seu e-mail. Você pode imprimir em casa ou em gráficas, em qualquer quantidade, e usar sempre que quiser!</p>
+          <div style="margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button class="btn btn-success" onclick="adicionarAoCarrinho(${p.id})">🛒 Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("vitrinePage").classList.add("hidden");
+    document.getElementById("detalhePage").classList.add("active");
+    window.scrollTo(0, 0);
+  }
+
+  function voltarVitrine() {
+    document.getElementById("detalhePage").classList.remove("active");
+    document.getElementById("vitrinePage").classList.remove("hidden");
+    window.scrollTo(0, 0);
   }
 
   document.querySelectorAll(".cat-btn").forEach(btn => {
@@ -589,7 +943,7 @@
     const produto = produtos.find(p => p.id === id);
     const item = carrinho.find(c => c.id === id);
     if (item) item.qtd++;
-    else carrinho.push({ ...produto, qtd: 1 });
+    else carrinho.push({ id: produto.id, nome: produto.nome, preco: produto.preco, icon: produto.icon, qtd: 1 });
     atualizarContador();
     mostrarToast(`${produto.nome} adicionado! 🎉`);
   }
@@ -609,7 +963,7 @@
         <div class="carrinho-item">
           <div class="carrinho-item-img">${item.icon}</div>
           <div class="carrinho-item-info">
-            <h4>${item.nome}</h4>
+            <h4>${escapeHtml(item.nome)}</h4>
             <p>R$ ${item.preco.toFixed(2).replace('.',',')} × ${item.qtd}</p>
           </div>
           <button class="btn-remove" onclick="removerDoCarrinho(${item.id})">✕</button>
@@ -637,12 +991,11 @@
     document.getElementById("resumoCheckout").innerHTML = `
       <div style="font-family: var(--fonte-titulo); font-size: 1.3rem; margin-bottom: 8px;">📦 Resumo do pedido</div>
       ${carrinho.map(i => `<div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin: 4px 0;">
-        <span>${i.icon} ${i.nome} × ${i.qtd}</span>
+        <span>${i.icon} ${escapeHtml(i.nome)} × ${i.qtd}</span>
         <span style="font-weight: 600;">R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}</span>
       </div>`).join('')}
       <div style="border-top: 2px dashed var(--cor-contorno); margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem;">
-        <span>Total:</span>
-        <span style="color: var(--cor-verde);">R$ ${total.toFixed(2).replace('.',',')}</span>
+        <span>Total:</span><span style="color: var(--cor-verde);">R$ ${total.toFixed(2).replace('.',',')}</span>
       </div>`;
     document.getElementById("clienteNome").value = "";
     document.getElementById("clienteEmail").value = "";
@@ -655,21 +1008,17 @@
     const email = document.getElementById("clienteEmail").value.trim();
     const erro = document.getElementById("erroCheckout");
     const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
     if (!nome) { erro.textContent = "Por favor, informe seu nome 😊"; erro.style.display = "block"; return; }
     if (!emailValido) { erro.textContent = "E-mail inválido, verifique 📧"; erro.style.display = "block"; return; }
 
     const pedido = {
-      id: Date.now(),
-      nome, email,
+      id: Date.now(), nome, email,
       data: new Date().toISOString(),
       itens: carrinho.map(i => ({ id: i.id, nome: i.nome, icon: i.icon, preco: i.preco, qtd: i.qtd })),
       total: carrinho.reduce((s, i) => s + i.preco * i.qtd, 0)
     };
-
     pedidos.unshift(pedido);
     salvar(STORAGE_PEDIDOS, pedidos);
-
     carrinho = [];
     atualizarContador();
     fecharModal("modalCheckout");
@@ -691,21 +1040,16 @@
       renderAdminLista();
       renderPedidos();
       abrirModal("modalAdmin");
-    } else {
-      document.getElementById("erroSenha").style.display = "block";
-    }
+    } else { document.getElementById("erroSenha").style.display = "block"; }
   }
 
   function renderAdminLista() {
     const lista = document.getElementById("adminLista");
-    if (produtos.length === 0) {
-      lista.innerHTML = '<p style="text-align: center; padding: 20px;">Nenhum material cadastrado</p>';
-      return;
-    }
+    if (produtos.length === 0) { lista.innerHTML = '<p style="text-align: center; padding: 20px;">Nenhum material cadastrado</p>'; return; }
     lista.innerHTML = produtos.map(p => `
       <div class="admin-produto-item">
         <div style="font-size: 2rem;">${p.icon}</div>
-        <div class="info"><h4>${p.nome}</h4><p>R$ ${p.preco.toFixed(2).replace('.',',')} · ${p.cat}</p></div>
+        <div class="info"><h4>${escapeHtml(p.nome)}</h4><p>R$ ${p.preco.toFixed(2).replace('.',',')} · ${p.cat}</p></div>
         <button class="btn btn-warning" style="padding: 6px 12px; font-size: 0.85rem;" onclick="editarProduto(${p.id})">✏️</button>
         <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="excluirProduto(${p.id})">🗑️</button>
       </div>
@@ -715,20 +1059,13 @@
   function renderPedidos() {
     const resumo = document.getElementById("pedidosResumo");
     const lista = document.getElementById("pedidosLista");
-
     if (pedidos.length === 0) {
       resumo.innerHTML = '';
-      lista.innerHTML = `<div class="pedidos-vazio">
-          <div class="big">📭</div>
-          <div>Nenhum pedido ainda</div>
-          <small style="display:block; margin-top: 8px;">Os pedidos dos clientes aparecerão aqui</small>
-        </div>`;
+      lista.innerHTML = `<div class="pedidos-vazio"><div class="big">📭</div><div>Nenhum pedido ainda</div><small style="display:block; margin-top: 8px;">Os pedidos dos clientes aparecerão aqui</small></div>`;
       return;
     }
-
     const totalVendas = pedidos.reduce((s, p) => s + p.total, 0);
     const totalClientes = new Set(pedidos.map(p => p.email.toLowerCase())).size;
-
     resumo.innerHTML = `
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
         <div style="background: var(--cor-verde); color: #fff; padding: 12px; border: 2px solid var(--cor-contorno); border-radius: 12px; text-align: center;">
@@ -744,7 +1081,6 @@
           <div style="font-family: var(--fonte-titulo); font-size: 1.4rem;">${totalClientes}</div>
         </div>
       </div>`;
-
     lista.innerHTML = pedidos.map(p => `
       <div class="pedido-card">
         <div class="pedido-header">
@@ -759,19 +1095,11 @@
           </div>
         </div>
         <div class="pedido-produtos">
-          ${p.itens.map(i => `
-            <div class="pedido-produto-linha">
-              <span class="emoji">${i.icon}</span>
-              <span class="nome">${escapeHtml(i.nome)}</span>
-              <span class="qtd">× ${i.qtd} · R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}</span>
-            </div>
-          `).join('')}
+          ${p.itens.map(i => `<div class="pedido-produto-linha"><span class="emoji">${i.icon}</span><span class="nome">${escapeHtml(i.nome)}</span><span class="qtd">× ${i.qtd} · R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}</span></div>`).join('')}
         </div>
       </div>
     `).join('');
   }
-
-  function escapeHtml(t) { return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
   function formatarData(iso) {
     const d = new Date(iso);
@@ -794,17 +1122,34 @@
     if (tabId === "tab-pedidos") renderPedidos();
   }
 
+  function linhasParaArray(texto) {
+    return texto.split('\n').map(s => s.trim()).filter(Boolean);
+  }
+  function arrayParaLinhas(arr) { return (arr || []).join('\n'); }
+
   function adicionarProduto() {
     const nome = document.getElementById("novoNome").value.trim();
     const desc = document.getElementById("novaDesc").value.trim();
     const preco = parseFloat(document.getElementById("novoPreco").value);
-    const cat = document.getElementById("novaCat").value;
-    const icon = document.getElementById("novoIcon").value.trim() || "📄";
-    const tag = document.getElementById("novaTag").value.trim();
-    if (!nome || !desc || isNaN(preco)) { mostrarToast("Preencha todos os campos! ⚠️"); return; }
-    produtos.push({ id: proximoId++, nome, desc, preco, cat, icon, tag });
+    if (!nome || !desc || isNaN(preco)) { mostrarToast("Preencha nome, descrição e preço! ⚠️"); return; }
+
+    produtos.push({
+      id: proximoId++, nome, desc, preco,
+      cat: document.getElementById("novaCat").value,
+      icon: document.getElementById("novoIcon").value.trim() || "📄",
+      tag: document.getElementById("novaTag").value.trim(),
+      subtitulo: document.getElementById("novoSubtitulo").value.trim(),
+      descLonga: document.getElementById("novaDescLonga").value.trim(),
+      inclui: linhasParaArray(document.getElementById("novoInclui").value),
+      publico: linhasParaArray(document.getElementById("novoPublico").value),
+      idade: document.getElementById("novaIdade").value.trim(),
+      paginas: document.getElementById("novaPaginas").value.trim(),
+      formato: document.getElementById("novoFormato").value.trim() || "PDF A4",
+      tempo: document.getElementById("novoTempo").value.trim()
+    });
+
     salvar(STORAGE_PRODUTOS, produtos);
-    ["novoNome","novaDesc","novoPreco","novoIcon","novaTag"].forEach(i => document.getElementById(i).value = "");
+    ["novoNome","novaDesc","novoPreco","novoIcon","novaTag","novoSubtitulo","novaDescLonga","novoInclui","novoPublico","novaIdade","novaPaginas","novoFormato","novoTempo"].forEach(i => document.getElementById(i).value = "");
     renderVitrine(); renderAdminLista();
     mostrarToast("Material adicionado com sucesso! ✨");
   }
@@ -817,7 +1162,15 @@
     document.getElementById("editPreco").value = p.preco;
     document.getElementById("editCat").value = p.cat;
     document.getElementById("editIcon").value = p.icon;
-    document.getElementById("editTag").value = p.tag;
+    document.getElementById("editTag").value = p.tag || "";
+    document.getElementById("editSubtitulo").value = p.subtitulo || "";
+    document.getElementById("editDescLonga").value = p.descLonga || "";
+    document.getElementById("editInclui").value = arrayParaLinhas(p.inclui);
+    document.getElementById("editPublico").value = arrayParaLinhas(p.publico);
+    document.getElementById("editIdade").value = p.idade || "";
+    document.getElementById("editPaginas").value = p.paginas || "";
+    document.getElementById("editFormato").value = p.formato || "";
+    document.getElementById("editTempo").value = p.tempo || "";
     abrirModal("modalEditar");
   }
 
@@ -830,6 +1183,14 @@
     p.cat = document.getElementById("editCat").value;
     p.icon = document.getElementById("editIcon").value.trim() || "📄";
     p.tag = document.getElementById("editTag").value.trim();
+    p.subtitulo = document.getElementById("editSubtitulo").value.trim();
+    p.descLonga = document.getElementById("editDescLonga").value.trim();
+    p.inclui = linhasParaArray(document.getElementById("editInclui").value);
+    p.publico = linhasParaArray(document.getElementById("editPublico").value);
+    p.idade = document.getElementById("editIdade").value.trim();
+    p.paginas = document.getElementById("editPaginas").value.trim();
+    p.formato = document.getElementById("editFormato").value.trim();
+    p.tempo = document.getElementById("editTempo").value.trim();
     salvar(STORAGE_PRODUTOS, produtos);
     fecharModal("modalEditar");
     renderVitrine(); renderAdminLista();
