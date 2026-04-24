@@ -12,7 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 
 <style>
-  /* Força tema claro mesmo em navegadores com dark mode automático */
   :root {
     color-scheme: light only;
     --cor-fundo: #fdf6e8;
@@ -27,18 +26,11 @@
     --fonte-corpo: 'Fredoka', 'Trebuchet MS', 'Verdana', sans-serif;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: light only;
-    }
-  }
+  @media (prefers-color-scheme: dark) { :root { color-scheme: light only; } }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html, body {
-    background: #fdf6e8 !important;
-    color: #2d2d2d !important;
-  }
+  html, body { background: #fdf6e8 !important; color: #2d2d2d !important; }
 
   body {
     font-family: var(--fonte-corpo);
@@ -52,289 +44,153 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-texto);
-  }
+  h1, h2, h3, h4 { font-family: var(--fonte-titulo); color: var(--cor-texto); }
 
-  /* HEADER */
   header {
     background: var(--cor-fundo);
     padding: 20px 5%;
     border-bottom: 4px dashed var(--cor-contorno);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    position: sticky; top: 0; z-index: 100;
   }
 
   .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex; align-items: center; gap: 12px;
     font-family: var(--fonte-titulo);
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2rem; font-weight: 700;
     color: var(--cor-texto);
   }
 
   .logo-icon {
-    width: 50px;
-    height: 50px;
+    width: 50px; height: 50px;
     background: var(--cor-amarelo);
     border: 3px solid var(--cor-contorno);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    transform: rotate(-5deg);
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; transform: rotate(-5deg); flex-shrink: 0;
   }
 
-  .header-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+  .header-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
   .btn {
-    font-family: var(--fonte-corpo);
-    font-weight: 600;
+    font-family: var(--fonte-corpo); font-weight: 600;
     padding: 10px 20px;
     border: 3px solid var(--cor-contorno);
     border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
+    cursor: pointer; font-size: 1rem;
     transition: transform 0.2s, box-shadow 0.2s;
-    background: #ffffff;
-    color: var(--cor-texto);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    background: #ffffff; color: var(--cor-texto);
+    display: inline-flex; align-items: center; gap: 8px;
     white-space: nowrap;
   }
 
-  .btn:hover, .btn:active {
-    transform: translateY(-3px) rotate(-1deg);
-    box-shadow: 4px 4px 0 var(--cor-contorno);
-  }
-
+  .btn:hover, .btn:active { transform: translateY(-3px) rotate(-1deg); box-shadow: 4px 4px 0 var(--cor-contorno); }
   .btn-primary { background: var(--cor-vermelho); color: #ffffff; }
   .btn-secondary { background: var(--cor-azul); color: #ffffff; }
   .btn-success { background: var(--cor-verde); color: #ffffff; }
   .btn-warning { background: var(--cor-amarelo); color: var(--cor-texto); }
 
-  .cart-btn {
-    background: var(--cor-laranja);
-    color: #ffffff;
-    position: relative;
-  }
+  .cart-btn { background: var(--cor-laranja); color: #ffffff; position: relative; }
 
   .cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: var(--cor-vermelho);
-    color: #ffffff;
+    position: absolute; top: -8px; right: -8px;
+    background: var(--cor-vermelho); color: #ffffff;
     border: 2px solid var(--cor-contorno);
     border-radius: 50%;
-    width: 26px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 700;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
   }
 
-  /* HERO */
-  .hero {
-    text-align: center;
-    padding: 60px 20px 40px;
-    position: relative;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    color: var(--cor-texto);
-    margin-bottom: 16px;
-    line-height: 1;
-  }
-
+  .hero { text-align: center; padding: 60px 20px 40px; }
+  .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 16px; line-height: 1; }
   .hero h1 span:nth-child(1) { color: var(--cor-vermelho); }
   .hero h1 span:nth-child(2) { color: var(--cor-amarelo); }
   .hero h1 span:nth-child(3) { color: var(--cor-verde); }
   .hero h1 span:nth-child(4) { color: var(--cor-azul); }
   .hero h1 span:nth-child(5) { color: var(--cor-laranja); }
+  .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; color: #555555; }
 
-  .hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-    color: #555555;
-  }
-
-  .hero-decoration {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 30px;
-    font-size: 2.5rem;
-  }
-
-  .hero-decoration span {
-    animation: bounce 2s infinite ease-in-out;
-    display: inline-block;
-  }
+  .hero-decoration { display: flex; justify-content: center; gap: 24px; margin-top: 30px; font-size: 2.5rem; }
+  .hero-decoration span { animation: bounce 2s infinite ease-in-out; display: inline-block; }
   .hero-decoration span:nth-child(2) { animation-delay: 0.2s; }
   .hero-decoration span:nth-child(3) { animation-delay: 0.4s; }
   .hero-decoration span:nth-child(4) { animation-delay: 0.6s; }
   .hero-decoration span:nth-child(5) { animation-delay: 0.8s; }
 
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-  /* CATEGORIAS */
-  .categorias {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .categorias { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 20px; max-width: 1200px; margin: 0 auto; }
 
   .cat-btn {
-    padding: 8px 20px;
-    background: #ffffff;
+    padding: 8px 20px; background: #ffffff;
     border: 3px solid var(--cor-contorno);
     border-radius: 30px;
-    font-family: var(--fonte-corpo);
-    font-weight: 500;
-    color: var(--cor-texto);
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 1rem;
+    font-family: var(--fonte-corpo); font-weight: 500;
+    color: var(--cor-texto); cursor: pointer;
+    transition: all 0.2s; font-size: 1rem;
   }
 
-  .cat-btn:hover, .cat-btn.active {
-    background: var(--cor-amarelo);
-    transform: rotate(-2deg);
-  }
+  .cat-btn:hover, .cat-btn.active { background: var(--cor-amarelo); transform: rotate(-2deg); }
 
-  /* VITRINE */
   .vitrine {
-    max-width: 1300px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 24px;
+    max-width: 1300px; margin: 40px auto; padding: 0 20px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;
   }
 
   .produto {
     background: #ffffff;
     border: 3px solid var(--cor-contorno);
     border-radius: 20px;
-    padding: 20px;
-    position: relative;
+    padding: 20px; position: relative;
     transition: transform 0.3s;
     box-shadow: 5px 5px 0 var(--cor-contorno);
     color: var(--cor-texto);
   }
 
-  .produto:hover {
-    transform: translateY(-6px) rotate(-1deg);
-    box-shadow: 8px 8px 0 var(--cor-contorno);
-  }
+  .produto:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 8px 8px 0 var(--cor-contorno); }
 
   .produto-img {
-    width: 100%;
-    height: 180px;
+    width: 100%; height: 180px;
     border-radius: 14px;
     border: 2px dashed var(--cor-contorno);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; margin-bottom: 14px;
   }
 
   .produto-tag {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--cor-vermelho);
-    color: #ffffff;
+    position: absolute; top: 10px; right: 10px;
+    background: var(--cor-vermelho); color: #ffffff;
     padding: 4px 12px;
     border: 2px solid var(--cor-contorno);
     border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.75rem; font-weight: 600;
     transform: rotate(8deg);
   }
 
-  .produto h3 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-    line-height: 1.1;
-  }
-
-  .produto-desc {
-    font-size: 0.9rem;
-    color: #666666;
-    margin-bottom: 14px;
-    min-height: 40px;
-  }
-
-  .produto-rodape {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .preco {
-    font-family: var(--fonte-titulo);
-    font-size: 1.8rem;
-    color: var(--cor-verde);
-    font-weight: 700;
-  }
+  .produto h3 { font-size: 1.5rem; margin-bottom: 8px; line-height: 1.1; }
+  .produto-desc { font-size: 0.9rem; color: #666666; margin-bottom: 14px; min-height: 40px; }
+  .produto-rodape { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .preco { font-family: var(--fonte-titulo); font-size: 1.8rem; color: var(--cor-verde); font-weight: 700; }
 
   .btn-add {
-    background: var(--cor-verde);
-    color: #ffffff;
+    background: var(--cor-verde); color: #ffffff;
     border: 3px solid var(--cor-contorno);
-    padding: 8px 14px;
-    border-radius: 20px;
+    padding: 8px 14px; border-radius: 20px;
     cursor: pointer;
-    font-family: var(--fonte-corpo);
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-family: var(--fonte-corpo); font-weight: 600; font-size: 0.9rem;
     transition: transform 0.2s;
   }
 
   .btn-add:hover { transform: scale(1.1); }
 
-  /* MODAL */
   .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
+    display: none; position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0,0,0,0.5);
     z-index: 1000;
-    align-items: center;
-    justify-content: center;
+    align-items: center; justify-content: center;
     padding: 20px;
   }
 
@@ -345,81 +201,48 @@
     border: 4px solid var(--cor-contorno);
     border-radius: 24px;
     padding: 30px;
-    max-width: 600px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-width: 600px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
     position: relative;
     box-shadow: 8px 8px 0 var(--cor-contorno);
     color: var(--cor-texto);
   }
 
-  .modal h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+  .modal h2 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
 
   .close-modal {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background: var(--cor-vermelho);
-    color: #ffffff;
+    position: absolute; top: 14px; right: 14px;
+    background: var(--cor-vermelho); color: #ffffff;
     border: 3px solid var(--cor-contorno);
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: 700;
+    font-size: 1.2rem; cursor: pointer; font-weight: 700;
   }
 
   .form-group { margin-bottom: 16px; }
-
-  .form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--cor-texto);
-  }
-
+  .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--cor-texto); }
   .form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 10px 14px;
+    width: 100%; padding: 10px 14px;
     border: 3px solid var(--cor-contorno);
     border-radius: 14px;
-    font-family: var(--fonte-corpo);
-    font-size: 1rem;
-    background: #ffffff;
-    color: var(--cor-texto);
+    font-family: var(--fonte-corpo); font-size: 1rem;
+    background: #ffffff; color: var(--cor-texto);
   }
-
   .form-group textarea { resize: vertical; min-height: 80px; }
 
-  /* CARRINHO */
   .carrinho-item {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding: 12px;
-    background: #ffffff;
+    display: flex; gap: 12px; align-items: center;
+    padding: 12px; background: #ffffff;
     border: 2px solid var(--cor-contorno);
-    border-radius: 14px;
-    margin-bottom: 10px;
+    border-radius: 14px; margin-bottom: 10px;
   }
 
   .carrinho-item-img {
-    font-size: 2.5rem;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 2.5rem; width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
     background: var(--cor-fundo);
     border: 2px dashed var(--cor-contorno);
-    border-radius: 10px;
-    flex-shrink: 0;
+    border-radius: 10px; flex-shrink: 0;
   }
 
   .carrinho-item-info { flex: 1; }
@@ -427,51 +250,32 @@
   .carrinho-item-info p { font-size: 0.9rem; color: var(--cor-verde); font-weight: 600; }
 
   .btn-remove {
-    background: var(--cor-vermelho);
-    color: #ffffff;
+    background: var(--cor-vermelho); color: #ffffff;
     border: 2px solid var(--cor-contorno);
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    font-weight: 700;
+    width: 32px; height: 32px;
+    cursor: pointer; font-weight: 700;
   }
 
   .carrinho-total {
-    margin-top: 16px;
-    padding: 16px;
+    margin-top: 16px; padding: 16px;
     background: var(--cor-amarelo);
     border: 3px solid var(--cor-contorno);
     border-radius: 14px;
     text-align: center;
-    font-family: var(--fonte-titulo);
-    font-size: 1.8rem;
+    font-family: var(--fonte-titulo); font-size: 1.8rem;
     color: var(--cor-texto);
   }
 
-  .carrinho-vazio {
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 1.2rem;
-    color: #888888;
-  }
+  .carrinho-vazio { text-align: center; padding: 40px 20px; font-size: 1.2rem; color: #888888; }
 
-  /* ADMIN */
-  .admin-produto-list {
-    max-height: 400px;
-    overflow-y: auto;
-    margin-bottom: 16px;
-  }
+  .admin-produto-list { max-height: 400px; overflow-y: auto; margin-bottom: 16px; }
 
   .admin-produto-item {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px;
-    background: #ffffff;
+    display: flex; gap: 10px; align-items: center;
+    padding: 10px; background: #ffffff;
     border: 2px solid var(--cor-contorno);
-    border-radius: 12px;
-    margin-bottom: 8px;
+    border-radius: 12px; margin-bottom: 8px;
   }
 
   .admin-produto-item .info { flex: 1; }
@@ -479,43 +283,81 @@
   .admin-produto-item p { font-size: 0.85rem; color: #666666; }
 
   .admin-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
+    display: flex; gap: 8px; margin-bottom: 20px;
     border-bottom: 3px dashed var(--cor-contorno);
     padding-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   .admin-tab {
-    padding: 8px 16px;
-    background: #ffffff;
+    padding: 8px 16px; background: #ffffff;
     border: 2px solid var(--cor-contorno);
     border-radius: 20px;
     cursor: pointer;
-    font-family: var(--fonte-corpo);
-    font-weight: 500;
-    color: var(--cor-texto);
+    font-family: var(--fonte-corpo); font-weight: 500;
+    color: var(--cor-texto); font-size: 0.9rem;
   }
 
   .admin-tab.active { background: var(--cor-azul); color: #ffffff; }
 
-  /* FOOTER */
-  footer {
-    background: var(--cor-contorno);
-    color: #ffffff;
-    padding: 30px 20px;
-    text-align: center;
-    margin-top: 60px;
+  .pedido-card {
+    background: #ffffff;
+    border: 2px solid var(--cor-contorno);
+    border-radius: 14px;
+    padding: 14px; margin-bottom: 12px;
   }
 
+  .pedido-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 10px; flex-wrap: wrap;
+    margin-bottom: 10px; padding-bottom: 10px;
+    border-bottom: 2px dashed #ddd;
+  }
+
+  .pedido-header h4 { font-family: var(--fonte-titulo); font-size: 1.3rem; }
+  .pedido-email { color: var(--cor-azul); font-weight: 600; font-size: 0.9rem; word-break: break-all; }
+  .pedido-data { font-size: 0.8rem; color: #888; }
+  .pedido-total-badge {
+    background: var(--cor-verde); color: #fff;
+    padding: 4px 12px; border-radius: 20px;
+    font-weight: 700; font-size: 0.9rem;
+    border: 2px solid var(--cor-contorno);
+  }
+
+  .pedido-produtos { display: flex; flex-direction: column; gap: 6px; }
+  .pedido-produto-linha {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 10px;
+    background: var(--cor-fundo);
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+  .pedido-produto-linha .emoji { font-size: 1.3rem; }
+  .pedido-produto-linha .nome { flex: 1; }
+  .pedido-produto-linha .qtd { color: #666; font-size: 0.85rem; }
+
+  .pedidos-vazio { text-align: center; padding: 40px 20px; color: #888; }
+  .pedidos-vazio .big { font-size: 3rem; margin-bottom: 10px; }
+
+  .btn-excluir-pedido {
+    background: var(--cor-vermelho); color: #fff;
+    border: 2px solid var(--cor-contorno);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: var(--fonte-corpo); font-weight: 500;
+  }
+
+  footer {
+    background: var(--cor-contorno); color: #ffffff;
+    padding: 30px 20px; text-align: center; margin-top: 60px;
+  }
   footer p { margin: 5px 0; }
 
   .toast {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--cor-verde);
-    color: #ffffff;
+    position: fixed; bottom: 30px; right: 30px;
+    background: var(--cor-verde); color: #ffffff;
     padding: 14px 24px;
     border: 3px solid var(--cor-contorno);
     border-radius: 30px;
@@ -533,6 +375,7 @@
     .hero { padding: 30px 20px; }
     .btn { padding: 8px 14px; font-size: 0.9rem; }
     .toast { right: 10px; left: 10px; bottom: 20px; }
+    .admin-tab { font-size: 0.8rem; padding: 6px 12px; }
   }
 </style>
 
@@ -548,23 +391,19 @@
     <button class="btn cart-btn" onclick="abrirCarrinho()">
       🛒 Carrinho <span class="cart-count" id="cartCount">0</span>
     </button>
-    <button class="btn btn-secondary" onclick="abrirLoginAdmin()">
-      🔐 Admin
-    </button>
+    <button class="btn btn-secondary" onclick="abrirLoginAdmin()">🔐 Admin</button>
   </div>
 </header>
 
 <section class="hero">
-  <h1>
-    <span>M</span><span>u</span><span>n</span><span>d</span><span>o</span> Colorido
-  </h1>
+  <h1><span>M</span><span>u</span><span>n</span><span>d</span><span>o</span> Colorido</h1>
   <p>Materiais didáticos criados com carinho para todas as crianças aprenderem brincando! 🌈 Inclusivos, acessíveis e prontos para imprimir em casa.</p>
   <div class="hero-decoration">
     <span>📚</span><span>✏️</span><span>🎨</span><span>⭐</span><span>🌈</span>
   </div>
 </section>
 
-<div class="categorias" id="categorias">
+<div class="categorias">
   <button class="cat-btn active" data-cat="todos">✨ Todos</button>
   <button class="cat-btn" data-cat="alfabetizacao">🔤 Alfabetização</button>
   <button class="cat-btn" data-cat="matematica">🔢 Matemática</button>
@@ -573,8 +412,6 @@
 </div>
 
 <main class="vitrine" id="vitrine"></main>
-
-<!-- MODAL CARRINHO -->
 
 <div class="modal-overlay" id="modalCarrinho">
   <div class="modal">
@@ -585,7 +422,26 @@
   </div>
 </div>
 
-<!-- MODAL LOGIN ADMIN -->
+<div class="modal-overlay" id="modalCheckout">
+  <div class="modal" style="max-width: 450px;">
+    <button class="close-modal" onclick="fecharModal('modalCheckout')">✕</button>
+    <h2>📧 Finalizar Compra</h2>
+    <p style="text-align: center; margin-bottom: 20px; color: #555;">
+      Informe seu e-mail para receber os materiais em PDF:
+    </p>
+    <div class="form-group">
+      <label>Seu nome</label>
+      <input type="text" id="clienteNome" placeholder="Ex: Maria Silva">
+    </div>
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" id="clienteEmail" placeholder="seu@email.com" onkeypress="if(event.key==='Enter') confirmarCompra()">
+    </div>
+    <div id="resumoCheckout" style="background: #fff; border: 2px dashed var(--cor-contorno); border-radius: 12px; padding: 12px; margin-bottom: 16px;"></div>
+    <button class="btn btn-success" style="width: 100%;" onclick="confirmarCompra()">✨ Confirmar Compra</button>
+    <p id="erroCheckout" style="color: var(--cor-vermelho); text-align: center; margin-top: 10px; display: none;"></p>
+  </div>
+</div>
 
 <div class="modal-overlay" id="modalLogin">
   <div class="modal" style="max-width: 400px;">
@@ -600,8 +456,6 @@
   </div>
 </div>
 
-<!-- MODAL ADMIN -->
-
 <div class="modal-overlay" id="modalAdmin">
   <div class="modal" style="max-width: 700px;">
     <button class="close-modal" onclick="fecharModal('modalAdmin')">✕</button>
@@ -609,6 +463,7 @@
     <div class="admin-tabs">
       <button class="admin-tab active" onclick="trocarTab('tab-listar', this)">📋 Produtos</button>
       <button class="admin-tab" onclick="trocarTab('tab-adicionar', this)">➕ Adicionar</button>
+      <button class="admin-tab" onclick="trocarTab('tab-pedidos', this)">📦 Pedidos</button>
     </div>
     <div id="tab-listar">
       <div class="admin-produto-list" id="adminLista"></div>
@@ -629,10 +484,12 @@
       <div class="form-group"><label>Tag (opcional)</label><input type="text" id="novaTag" placeholder="NOVO, POPULAR..."></div>
       <button class="btn btn-success" style="width: 100%;" onclick="adicionarProduto()">✨ Adicionar Material</button>
     </div>
+    <div id="tab-pedidos" style="display: none;">
+      <div id="pedidosResumo" style="margin-bottom: 16px;"></div>
+      <div id="pedidosLista"></div>
+    </div>
   </div>
 </div>
-
-<!-- MODAL EDITAR -->
 
 <div class="modal-overlay" id="modalEditar">
   <div class="modal" style="max-width: 500px;">
@@ -665,7 +522,8 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  const STORAGE_KEY = 'mundoColoridoProdutos_v1';
+  const STORAGE_PRODUTOS = 'mundoColoridoProdutos_v1';
+  const STORAGE_PEDIDOS = 'mundoColoridoPedidos_v1';
 
   const produtosPadrao = [
     { id: 1, nome: "Alfabeto Divertido", desc: "Cartões coloridos de A a Z com ilustrações", preco: 19.90, cat: "alfabetizacao", icon: "🔤", tag: "POPULAR" },
@@ -678,22 +536,17 @@
     { id: 8, nome: "Adição e Subtração", desc: "Exercícios visuais com objetos", preco: 18.90, cat: "matematica", icon: "➕", tag: "POPULAR" }
   ];
 
-  let produtos = carregarProdutos();
+  function carregar(key, padrao) {
+    try { const s = localStorage.getItem(key); if (s) return JSON.parse(s); } catch(e) {}
+    return padrao;
+  }
+  function salvar(key, valor) { try { localStorage.setItem(key, JSON.stringify(valor)); } catch(e) {} }
+
+  let produtos = carregar(STORAGE_PRODUTOS, JSON.parse(JSON.stringify(produtosPadrao)));
+  let pedidos = carregar(STORAGE_PEDIDOS, []);
   let carrinho = [];
   let categoriaAtiva = "todos";
   let proximoId = produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1;
-
-  function carregarProdutos() {
-    try {
-      const salvo = localStorage.getItem(STORAGE_KEY);
-      if (salvo) return JSON.parse(salvo);
-    } catch(e) {}
-    return JSON.parse(JSON.stringify(produtosPadrao));
-  }
-
-  function salvarProdutos() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(produtos)); } catch(e) {}
-  }
 
   function renderVitrine() {
     const vitrine = document.getElementById("vitrine");
@@ -717,8 +570,7 @@
   }
 
   function corPorCategoria(cat) {
-    const cores = { alfabetizacao: "#fff4d4", matematica: "#d4e9ff", inclusivo: "#ffd9d4", atividades: "#d9f5c8" };
-    return cores[cat] || "#fdf6e8";
+    return ({ alfabetizacao: "#fff4d4", matematica: "#d4e9ff", inclusivo: "#ffd9d4", atividades: "#d9f5c8" })[cat] || "#fdf6e8";
   }
 
   document.querySelectorAll(".cat-btn").forEach(btn => {
@@ -763,7 +615,7 @@
       const total = carrinho.reduce((s, i) => s + i.preco * i.qtd, 0);
       footer.innerHTML = `
         <div class="carrinho-total">Total: R$ ${total.toFixed(2).replace('.',',')}</div>
-        <button class="btn btn-success" style="width: 100%; margin-top: 14px;" onclick="finalizarCompra()">✨ Finalizar Compra</button>
+        <button class="btn btn-success" style="width: 100%; margin-top: 14px;" onclick="abrirCheckout()">✨ Finalizar Compra</button>
       `;
     }
     abrirModal("modalCarrinho");
@@ -775,12 +627,50 @@
     abrirCarrinho();
   }
 
-  function finalizarCompra() {
+  function abrirCheckout() {
     if (carrinho.length === 0) return;
-    mostrarToast("Compra realizada! PDFs enviados por e-mail 📧");
+    fecharModal("modalCarrinho");
+    const total = carrinho.reduce((s, i) => s + i.preco * i.qtd, 0);
+    document.getElementById("resumoCheckout").innerHTML = `
+      <div style="font-family: var(--fonte-titulo); font-size: 1.3rem; margin-bottom: 8px;">📦 Resumo do pedido</div>
+      ${carrinho.map(i => `<div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin: 4px 0;">
+        <span>${i.icon} ${i.nome} × ${i.qtd}</span>
+        <span style="font-weight: 600;">R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}</span>
+      </div>`).join('')}
+      <div style="border-top: 2px dashed var(--cor-contorno); margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem;">
+        <span>Total:</span>
+        <span style="color: var(--cor-verde);">R$ ${total.toFixed(2).replace('.',',')}</span>
+      </div>`;
+    document.getElementById("clienteNome").value = "";
+    document.getElementById("clienteEmail").value = "";
+    document.getElementById("erroCheckout").style.display = "none";
+    abrirModal("modalCheckout");
+  }
+
+  function confirmarCompra() {
+    const nome = document.getElementById("clienteNome").value.trim();
+    const email = document.getElementById("clienteEmail").value.trim();
+    const erro = document.getElementById("erroCheckout");
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!nome) { erro.textContent = "Por favor, informe seu nome 😊"; erro.style.display = "block"; return; }
+    if (!emailValido) { erro.textContent = "E-mail inválido, verifique 📧"; erro.style.display = "block"; return; }
+
+    const pedido = {
+      id: Date.now(),
+      nome, email,
+      data: new Date().toISOString(),
+      itens: carrinho.map(i => ({ id: i.id, nome: i.nome, icon: i.icon, preco: i.preco, qtd: i.qtd })),
+      total: carrinho.reduce((s, i) => s + i.preco * i.qtd, 0)
+    };
+
+    pedidos.unshift(pedido);
+    salvar(STORAGE_PEDIDOS, pedidos);
+
     carrinho = [];
     atualizarContador();
-    fecharModal("modalCarrinho");
+    fecharModal("modalCheckout");
+    mostrarToast(`Compra confirmada! PDFs enviados para ${email} 📧`);
   }
 
   function abrirModal(id) { document.getElementById(id).classList.add("active"); }
@@ -795,13 +685,13 @@
   function entrarAdmin() {
     if (document.getElementById("senhaAdmin").value === "1234") {
       fecharModal("modalLogin");
-      abrirAdmin();
+      renderAdminLista();
+      renderPedidos();
+      abrirModal("modalAdmin");
     } else {
       document.getElementById("erroSenha").style.display = "block";
     }
   }
-
-  function abrirAdmin() { renderAdminLista(); abrirModal("modalAdmin"); }
 
   function renderAdminLista() {
     const lista = document.getElementById("adminLista");
@@ -819,12 +709,86 @@
     `).join('');
   }
 
+  function renderPedidos() {
+    const resumo = document.getElementById("pedidosResumo");
+    const lista = document.getElementById("pedidosLista");
+
+    if (pedidos.length === 0) {
+      resumo.innerHTML = '';
+      lista.innerHTML = `<div class="pedidos-vazio">
+          <div class="big">📭</div>
+          <div>Nenhum pedido ainda</div>
+          <small style="display:block; margin-top: 8px;">Os pedidos dos clientes aparecerão aqui</small>
+        </div>`;
+      return;
+    }
+
+    const totalVendas = pedidos.reduce((s, p) => s + p.total, 0);
+    const totalClientes = new Set(pedidos.map(p => p.email.toLowerCase())).size;
+
+    resumo.innerHTML = `
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="background: var(--cor-verde); color: #fff; padding: 12px; border: 2px solid var(--cor-contorno); border-radius: 12px; text-align: center;">
+          <div style="font-size: 0.8rem;">Faturamento</div>
+          <div style="font-family: var(--fonte-titulo); font-size: 1.4rem;">R$ ${totalVendas.toFixed(2).replace('.',',')}</div>
+        </div>
+        <div style="background: var(--cor-azul); color: #fff; padding: 12px; border: 2px solid var(--cor-contorno); border-radius: 12px; text-align: center;">
+          <div style="font-size: 0.8rem;">Pedidos</div>
+          <div style="font-family: var(--fonte-titulo); font-size: 1.4rem;">${pedidos.length}</div>
+        </div>
+        <div style="background: var(--cor-laranja); color: #fff; padding: 12px; border: 2px solid var(--cor-contorno); border-radius: 12px; text-align: center;">
+          <div style="font-size: 0.8rem;">Clientes</div>
+          <div style="font-family: var(--fonte-titulo); font-size: 1.4rem;">${totalClientes}</div>
+        </div>
+      </div>`;
+
+    lista.innerHTML = pedidos.map(p => `
+      <div class="pedido-card">
+        <div class="pedido-header">
+          <div style="flex: 1; min-width: 180px;">
+            <h4>👤 ${escapeHtml(p.nome)}</h4>
+            <div class="pedido-email">📧 ${escapeHtml(p.email)}</div>
+            <div class="pedido-data">🕒 ${formatarData(p.data)}</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-end;">
+            <div class="pedido-total-badge">R$ ${p.total.toFixed(2).replace('.',',')}</div>
+            <button class="btn-excluir-pedido" onclick="excluirPedido(${p.id})">🗑️ Excluir</button>
+          </div>
+        </div>
+        <div class="pedido-produtos">
+          ${p.itens.map(i => `
+            <div class="pedido-produto-linha">
+              <span class="emoji">${i.icon}</span>
+              <span class="nome">${escapeHtml(i.nome)}</span>
+              <span class="qtd">× ${i.qtd} · R$ ${(i.preco * i.qtd).toFixed(2).replace('.',',')}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function escapeHtml(t) { return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  function formatarData(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('pt-BR') + ' às ' + d.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
+  }
+
+  function excluirPedido(id) {
+    if (!confirm("Excluir este pedido do histórico?")) return;
+    pedidos = pedidos.filter(p => p.id !== id);
+    salvar(STORAGE_PEDIDOS, pedidos);
+    renderPedidos();
+    mostrarToast("Pedido excluído 🗑️");
+  }
+
   function trocarTab(tabId, btn) {
     document.querySelectorAll(".admin-tab").forEach(t => t.classList.remove("active"));
     btn.classList.add("active");
-    document.getElementById("tab-listar").style.display = "none";
-    document.getElementById("tab-adicionar").style.display = "none";
+    ["tab-listar","tab-adicionar","tab-pedidos"].forEach(id => document.getElementById(id).style.display = "none");
     document.getElementById(tabId).style.display = "block";
+    if (tabId === "tab-pedidos") renderPedidos();
   }
 
   function adicionarProduto() {
@@ -836,7 +800,7 @@
     const tag = document.getElementById("novaTag").value.trim();
     if (!nome || !desc || isNaN(preco)) { mostrarToast("Preencha todos os campos! ⚠️"); return; }
     produtos.push({ id: proximoId++, nome, desc, preco, cat, icon, tag });
-    salvarProdutos();
+    salvar(STORAGE_PRODUTOS, produtos);
     ["novoNome","novaDesc","novoPreco","novoIcon","novaTag"].forEach(i => document.getElementById(i).value = "");
     renderVitrine(); renderAdminLista();
     mostrarToast("Material adicionado com sucesso! ✨");
@@ -863,7 +827,7 @@
     p.cat = document.getElementById("editCat").value;
     p.icon = document.getElementById("editIcon").value.trim() || "📄";
     p.tag = document.getElementById("editTag").value.trim();
-    salvarProdutos();
+    salvar(STORAGE_PRODUTOS, produtos);
     fecharModal("modalEditar");
     renderVitrine(); renderAdminLista();
     mostrarToast("Material atualizado! 💾");
@@ -872,7 +836,7 @@
   function excluirProduto(id) {
     if (!confirm("Tem certeza que deseja excluir este material?")) return;
     produtos = produtos.filter(p => p.id !== id);
-    salvarProdutos();
+    salvar(STORAGE_PRODUTOS, produtos);
     renderVitrine(); renderAdminLista();
     mostrarToast("Material excluído 🗑️");
   }
